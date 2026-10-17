@@ -5,41 +5,7 @@ A refined Higgsfield-inspired homepage and studio site prototype built with Next
 ## Local development
 
 ```bash
-name: Deploy to Vercel
-
-on:
-  push:
-    branches: [ main ]
-
-jobs:
-  deploy:
-    name: Deploy to Vercel
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: '18'
-
-      - name: Install dependencies
-        run: npm install
-
-      - name: Build
-        run: npm run build
-
-      - name: Vercel Deploy
-        uses: amondnet/vercel-action@v20
-        with:
-          vercel-token: ${{ secrets.VERCEL_TOKEN }}
-          vercel-args: '--prod'
-          vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
-          vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }}
-        env:
-          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+npm install
 npm run dev
 ```
 
@@ -68,4 +34,4 @@ If you prefer, import this repo directly into Vercel using "New Project → Impo
 
 ---
 
-Last deploy trigger: 2026-10-17T14:58:00Z (triggered by assistant)
+Last deploy trigger: 2026-10-17T15:45:00Z (triggered by assistant)
