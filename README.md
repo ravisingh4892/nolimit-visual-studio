@@ -1,11 +1,45 @@
-# nolimit-visual-studio
+import { useEffect } from 'react'
+import Lenis from '@studio-freight/lenis'
+import { gsap } from 'gsap'
+import ScrollTrigger from 'gsap/ScrollTrigger'
 
-Pixel-approximate visual clone of higgsfield.ai built with Next.js, TypeScript, Tailwind CSS, GSAP and Lenis.
+export default function useLenisGsap() {
+  useEffect(() => {
+    if (typeof window === 'undefined') return
 
-Local development:
+    gsap.registerPlugin(ScrollTrigger)
 
-1. npm install
-2. npm run dev
-3. Open http://localhost:3000
+    const lenis = new Lenis({
+      duration: 1.2,
+      smooth: true,
+      wheelMultiplier: 0.9,
+      touchMultiplier: 1.1,
+      smoothTouch: false
+    })
 
-Deploy: Vercel recommended for zero-config Next.js deployments.
+    const frame = (time: number) => {
+      lenis.raf(time)
+      requestAnimationFrame(frame)
+    }
+
+    requestAnimationFrame(frame)
+    lenis.on('scroll', ScrollTrigger.update)
+
+    ScrollTrigger.scrollerProxy(document.documentElement, {
+      scrollTop(value: number) {
+        return arguments.length ? lenis.scrollTo(value) : lenis.scroll
+      },
+      getBoundingClientRect() {
+        return { top: 0, left: 0, width: window.innerWidth, height: window.innerHeight }
+      },
+      pinType: document.documentElement.style.transform ? 'transform' : 'fixed'
+    })
+
+    setTimeout(() => ScrollTrigger.refresh(), 50)
+
+    return () => {
+      ScrollTrigger.kill()
+      lenis.destroy()
+    }
+  }, [])
+}
