@@ -4,7 +4,7 @@ import Header from '../../components/Header'
 import Footer from '../../components/Footer'
 import { projects } from '../../data/projects'
 
-export default function ProjectSlug({}) {
+export default function ProjectSlug() {
   const slug = typeof window !== 'undefined' ? window.location.pathname.split('/').pop() : ''
   const project = projects.find((p) => p.slug === slug) || projects[0]
 
