@@ -18,22 +18,6 @@ jobs:
         with:
           node-version: '18'
 
-      - name: Ensure a lockfile exists (temporary)
-        run: |
-          if [ -f package-lock.json ] || [ -f npm-shrinkwrap.json ] || [ -f yarn.lock ]; then
-            echo "Lockfile found in repo."
-          else
-            echo "No lockfile found — creating temporary package-lock.json for CI."
-            cat > package-lock.json <<'LCK'
-{
-  "name": "nolimit-visual-studio",
-  "lockfileVersion": 2,
-  "requires": true,
-  "packages": {}
-}
-LCK
-          fi
-
       - name: Install dependencies
         run: npm install --no-audit --no-fund
 
