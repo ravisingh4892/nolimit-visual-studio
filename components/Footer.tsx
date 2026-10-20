@@ -1,34 +1,22 @@
 import Link from 'next/link'
 
-const navItems = [
-  { label: 'Work', href: '/#work' },
-  { label: 'About', href: '/about' },
-  { label: 'Insights', href: '/#insights' },
-  { label: 'Contact', href: '/contact' }
-]
-
-export default function Header() {
+export default function Footer() {
   return (
-    <header className="sticky top-0 z-50 border-b border-slate-800/80 bg-[#05070b]/80 backdrop-blur-xl">
-      <div className="max-w-6xl mx-auto flex items-center justify-between px-6 py-5">
-        <Link href="/">
-          <a className="text-lg font-semibold tracking-tight text-white">NoLimit Visual</a>
-        </Link>
+    <footer className="border-t border-slate-800 bg-[#05070b]">
+      <div className="max-w-6xl mx-auto flex flex-col gap-6 px-6 py-10 md:flex-row md:items-end md:justify-between">
+        <div>
+          <p className="text-sm uppercase tracking-[0.24em] text-slate-500">NoLimit Visual</p>
+          <p className="mt-3 max-w-md text-sm text-slate-400">
+            AI strategy, design systems and product experiences for ambitious teams.
+          </p>
+        </div>
 
-        <nav className="hidden items-center gap-8 md:flex">
-          {navItems.map((item) => (
-            <Link key={item.label} href={item.href}>
-              <a className="text-sm text-slate-300 transition hover:text-white">{item.label}</a>
-            </Link>
-          ))}
-        </nav>
-
-        <Link href="/contact">
-          <a className="inline-flex items-center justify-center rounded-full border border-lime-400/50 bg-lime-400/10 px-4 py-2 text-sm font-medium text-primary transition hover:bg-lime-400/20">
-            Start a project
-          </a>
-        </Link>
+        <div className="flex flex-wrap gap-5 text-sm text-slate-300">
+          <Link href="/about"><a>About</a></Link>
+          <Link href="/contact"><a>Contact</a></Link>
+          <a href="mailto:hello@nolimitvisual.com">hello@nolimitvisual.com</a>
+        </div>
       </div>
-    </header>
+    </footer>
   )
 }
