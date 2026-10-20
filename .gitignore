@@ -1,22 +1,6 @@
-# nolimit-visual-studio
-
-A refined Higgsfield-inspired homepage and studio site prototype built with Next.js, TypeScript, Tailwind CSS, GSAP and Lenis.
-
-## Local development
-
-```bash
-npm install
-npm run dev
-```
-
-Visit http://localhost:3000
-
-## Notes
-
-- Built for a dark, premium AI brand aesthetic with lime accent accents.
-- Scroll animations and smooth motion are enabled and tuned for a high-end landing-page feel.
-- Includes a secondary about page and contact page for navigation completeness.
-
-## Deploy
-
-Recommended: Vercel
+node_modules/
+.next/
+out/
+.env*.local
+*.tsbuildinfo
+.DS_Store
