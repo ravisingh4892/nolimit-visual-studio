@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
 import Lenis from '@studio-freight/lenis'
 import { gsap } from 'gsap'
-import ScrollTrigger from 'gsap/ScrollTrigger'
+import ScrollTrigger from 'gsap/dist/ScrollTrigger'
 
 export default function useLenisGsap() {
   useEffect(() => {
