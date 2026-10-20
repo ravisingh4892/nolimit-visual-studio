@@ -1,48 +1,52 @@
+import Head from 'next/head'
+import Link from 'next/link'
+import Header from '../components/Header'
+import Footer from '../components/Footer'
 
+export default function AboutPage() {
+  return (
+    <>
+      <Head>
+        <title>About — NoLimit Visual</title>
+      </Head>
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+      <div className="min-h-screen bg-[#05070b] text-slate-100">
+        <Header />
+        <main className="max-w-4xl mx-auto px-6 py-20">
+          <p className="eyebrow">About</p>
+          <h1 className="mt-5 text-4xl md:text-6xl font-semibold tracking-[-0.06em]">We design and engineer AI experiences for real work.</h1>
+          <p className="mt-6 text-lg text-slate-300 leading-relaxed">
+            NoLimit Visual works at the intersection of research, product design and execution. We help teams clarify where AI adds leverage, design the experience around trust, and build products that are useful from day one.
+          </p>
 
-:root {
-  --bg: #05070b;
-  --panel: #101827;
-  --panel-soft: rgba(15, 23, 42, 0.7);
-  --text: #f8fafc;
-  --muted: #cbd5e1;
-  --primary: #d1fe17;
-  --primary-soft: rgba(209, 254, 23, 0.12);
-}
+          <div className="mt-12 grid gap-6 md:grid-cols-2">
+            <div className="rounded-3xl border border-slate-800 bg-slate-900/70 p-6">
+              <h3 className="text-xl font-semibold">Strategy</h3>
+              <p className="mt-3 text-slate-300">We frame product bets, define success criteria and shorten the path from concept to shipped value.</p>
+            </div>
+            <div className="rounded-3xl border border-slate-800 bg-slate-900/70 p-6">
+              <h3 className="text-xl font-semibold">Design</h3>
+              <p className="mt-3 text-slate-300">We create systems and interfaces that users trust, understand and return to because they feel useful.</p>
+            </div>
+          </div>
 
-html {
-  scroll-behavior: smooth;
-}
+          <div className="mt-10 rounded-[28px] border border-slate-800 bg-slate-950/80 p-8">
+            <p className="text-sm uppercase tracking-[0.2em] text-primary">Principles</p>
+            <ul className="mt-6 space-y-4 text-slate-300">
+              <li>• Make AI feel clear, not magical.</li>
+              <li>• Design for trust, governance and human control.</li>
+              <li>• Build systems that can ship in stages and scale with learning.</li>
+            </ul>
+          </div>
 
-html, body, #__next {
-  min-height: 100%;
-}
-
-body {
-  @apply bg-[#05070b] text-white antialiased;
-  font-family: 'Inter', sans-serif;
-  background-image:
-    radial-gradient(circle at top, rgba(209, 254, 23, 0.08), transparent 22%),
-    linear-gradient(180deg, #05070b 0%, #070b12 100%);
-}
-
-h1, h2, h3, h4, h5, h6 {
-  font-family: 'Space Grotesk', sans-serif;
-}
-
-.eyebrow {
-  @apply text-xs font-medium uppercase tracking-[0.28em] text-primary;
-}
-
-.card {
-  @apply rounded-[28px] border border-slate-800 bg-slate-900/80 p-6;
-}
-
-::selection {
-  background: rgba(209, 254, 23, 0.35);
-  color: white;
+          <div className="mt-12">
+            <Link href="/contact">
+              <a className="inline-flex items-center justify-center rounded-full bg-primary px-5 py-3 text-sm font-medium text-black">Start a conversation</a>
+            </Link>
+          </div>
+        </main>
+        <Footer />
+      </div>
+    </>
+  )
 }
