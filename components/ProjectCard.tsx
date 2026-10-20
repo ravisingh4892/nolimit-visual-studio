@@ -1,5 +1,6 @@
 import { useRef, useEffect, ReactNode } from 'react'
 import { gsap } from 'gsap'
+import ScrollTrigger from 'gsap/ScrollTrigger'
 
 type Props = {
   title: string
